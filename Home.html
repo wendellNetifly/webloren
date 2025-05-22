@@ -49,7 +49,7 @@
     .content .imagen img {
       max-width: 90%;
       height: auto;
-      border-radius: 10px;
+      border-radius: 15px;
     }
 
     .content h1 {
@@ -80,14 +80,30 @@
     }
 
     .seccion-negra button {
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      margin: 1rem 0;
-      cursor: pointer;
-      font-size: 1rem;
-      border-radius: 5px;
+	  background-color: red;
+	  color: white;
+	  border: none;
+	  padding: 1rem 2rem;
+	  margin: 1rem 0;
+	  cursor: pointer;
+	  font-size: 1rem;
+	  border-radius: 5px;
+	  width: 20%;
+	  height: 60px;
+    }
+	
+    .content button{
+	  background-color: red;
+	  color: white;
+	  border: none;
+	  padding: 1rem 2rem;
+	  margin: 1rem 0;
+	  cursor: pointer;
+	  font-size: 1rem;
+	  border-radius: 5px;
+	  width: 20%;
+	  height: 60px;
+	  margin-bottom: 2rem;
     }
 
     .seccion-negra img {
@@ -96,76 +112,239 @@
       margin: 1.5rem 0;
       border-radius: 10px;
     }
+	
+	.formulario-suscripcion {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center; /* Alineación vertical */
+	  gap: 10px;
+	  margin-top: 1rem;
+	  flex-wrap: wrap;
+	}
 
-    @media (max-width: 600px) {
-      .header {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-      }
+	.formulario-suscripcion input[type="email"],
+	.formulario-suscripcion button {
+	  height: 60px;
+	  width: 250px;
+	  font-size: 1rem;
+	  padding: 0 1rem;
+	  border: none;
+	  border-radius: 5px;
+	  box-sizing: border-box;
+	}
 
-      .club-name {
-        flex: none;
-      }
+	.menu-toggle {
+	  background-color: red;
+	  color: white;
+	  padding: 10px 15px;
+	  font-size: 1rem;
+	  border: none;
+	  border-radius: 5px;
+	  cursor: pointer;
+	}
 
-      .content h1,
-      .seccion-negra h1 {
-        font-size: 1.5rem;
-      }
+.menu-container {
+  position: relative;
+  z-index: 1001; /* Asegura que esté por encima del contenido */
+}
 
-      .content h3,
-      .seccion-negra p {
-        font-size: 1rem;
-      }
 
-      .seccion-negra button {
-        width: 80%;
-        font-size: 1rem;
-      }
-    }
+	.main-nav {
+	  display: none;
+	  position: absolute;
+	  top: 100%;
+	  right: 0;
+	  width: 200px;
+	  background-color: #f2f2f2;
+	  padding: 1rem;
+	  border-radius: 5px;
+	  z-index: 1000;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+
+.main-nav.show {
+  display: block;
+}
+
+
+	.main-nav ul {
+	  display: flex;
+	  flex-direction: column;
+	  gap: 10px;
+	}
+
+	.main-nav ul li a {
+	  color: #000;
+	  text-decoration: none;
+	  font-weight: bold;
+	}
+
+
+	/* Responsive */
+	@media (max-width: 768px) {
+	  .menu-toggle {
+		display: block;
+	  }
+
+	  .main-nav ul {
+		flex-direction: column;
+		gap: 10px;
+		background-color: #f2f2f2;
+		padding: 1rem;
+		border-radius: 5px;
+	  }
+
+	  .main-nav ul li {
+		margin: 0;
+	  }
+	}
+
+
+li a {
+  display: block;
+  width: 60px;
+}
+	
+	.social-icons a {
+  margin: 1rem;
+  }
+  
+  .menu-container{
+  margin: 1rem;
+  }
+  
+  .content, .seccion-negra,footer {
+  width: 100%;
+  box-sizing: border-box;
+  clear: both;
+}
+  
   </style>
 </head>
 <body>
 
   <!-- HEADER CON COLUMNAS -->
-  <div class="header">
-    <!-- Columna 1: Logo -->
-    <img src="imagenes/logo-ourensticks-1.png" alt="Logo Ourensticks" class="logo">
+	<div class="header">
+	  <!-- Columna 1: Logo -->
+	  <img src="imagenes/logo-ourensticks-1.png" alt="Logo Ourensticks" class="logo">
 
-    <!-- Columna 2: Nombre del club -->
-    <div class="club-name">
-      OURENSTICKS<br>HOCKEY CLUB
-    </div>
+	  <!-- Columna 2: Nombre del club -->
+	  <div class="club-name">
+		OURENSTICKS<br>HOCKEY CLUB
+	  </div>
 
-    <!-- Columna 3: Redes sociales -->
-    <div class="social-icons">
-      <a href="https://www.instagram.com/" target="_blank">
-        <img src="instagram-icon.png" alt="Instagram">
-      </a>
-      <a href="https://www.youtube.com/" target="_blank">
-        <img src="youtube-icon.png" alt="YouTube">
-      </a>
-    </div>
-  </div>
+	  <!-- Columna 3: Redes sociales -->
+	  <div class="social-icons">
+		<a href="https://www.instagram.com/" target="_blank">
+		  <img src="imagenes/Instagram_logo_2022.svg.png" alt="Instagram">
+		</a>
+		<a href="https://www.youtube.com/" target="_blank">
+		  <img src="imagenes/youtube.svg" alt="YouTube">
+		</a>
+	  </div>
+
+	<!-- Columna 4: Menú -->
+	<div class="menu-container">
+	  <button class="menu-toggle" onclick="toggleMenu()">☰ Menú</button>
+	  <nav class="main-nav" id="mainNav">
+		<ul>
+		  <li><a href="#home">Home</a></li>
+		  <li><a href="#eventos">Eventos</a></li>
+		  <li><a href="#contacto">Contacto</a></li>
+		  <li><a href="#noticias">Noticias</a></li>
+		  <li><a href="#calendario">Calendario</a></li>
+		</ul>
+	  </nav>
+	</div>
+
+
+  
+  <hr></hr>  <!-- LINEA HORIZONTAL -->
 
   <!-- CONTENIDO PRINCIPAL -->
-  <div class="content">
+<div class="content" id="home">
     <div class="imagen">
       <img src="imagenes/dsc_0004.jpg" alt="Imagen principal">
     </div>
 
     <h1>BIENVENIDO A Ourensticks Hockey Club</h1>
     <h3>Disfruta del hockey hierba y hockey sala con nosotros. ¡No te arrepentirás!</h3>
+	
+	<button onclick="window.location.href='#'">CALENDARIO</button>
   </div>
 
-  <!-- NUEVA SECCIÓN -->
+  <!-- SECCION COMUNIDAD OURENSTICKS -->
   <div class="seccion-negra">
-    <h1>¿Quieres unirte al equipo?</h1>
-    <p>Únete a una comunidad apasionada por el hockey, tanto en pista como en sala.</p>
-    <button onclick="window.location.href='#'">¡Inscríbete ahora!</button>
-    <img src="imagenes/equipo.jpg" alt="Foto del equipo">
-    <p>Entrenamientos semanales, competiciones y buen ambiente garantizado.</p>
+    <h3>COMUNIDAD OURENSTICKS</h3>
+    <h1>CONSTRUYE UNA FAMILIA A TRAVES DEL HOCKEY</h1>
+	<p>Fundado hace más de una década, Ourensticks Hockey Club reúne a jugadores de todas las edades y niveles. Nuestro enfoque está en fomentar el trabajo en equipo, el espíritu deportivo y la diversión tanto en hockey hierba como en hockey sala.</p>
+    <button onclick="window.location.href='#'">CONTACTO</button>
+    <img src="imagenes/img_4615.jpg" alt="Foto del equipo">
   </div>
+  
+  
+    <!-- SECCION EVENTOS -->
+	<div class="content" id="eventos">
+    <h1>EVENTOS</h1>
+	<div class="imagen">
+      <img src="imagenes/dsc_0359.jpg" alt="Imagen principal">
+    </div>
+  </div>
+  
+      <!-- SECCION COPA ESPAÑA -->
+	<div class="content" id="noticias">
+    <h1>COPA DE ESPAÑA JUVENIL HIERBA</h1>
+	<p>Únete a nosotros para el primer torneo de hockey sala de la temporada. Te esperan partidos emocionantes y actividades en equipo.</p>
+	<button onclick="window.location.href='#'">GALERIA</button>
+	<div class="imagen">
+      <img src="imagenes/img_5451.jpg" alt="Imagen principal">
+    </div>
+  </div>
+  
+        <!-- SECCION CAMPEONATO GALLEGO -->
+  <div class="content">
+    <h1>CAMPEONATO GALLEGO CADETE SALA</h1>
+	<p>Dirigido a desarrollar las habilidades de los jugadores jóvenes en el campo. Abierto tanto a miembros como a nuevos participantes.</p>
+	<button onclick="window.location.href='#'">GALERIA</button>
+  </div>
+  
+  
+	<!-- SECCION SUBSCRIBETE -->
+	<div class="seccion-negra" id="contacto">
+	  <h3>PARA ACTUALIZACIONES DEL CLUB</h3>
+	  <div class="formulario-suscripcion">
+		<input type="email" placeholder="Type your email..." required>
+		<button>SUBSCRIBETE</button>
+	  </div>
+	</div>
+
+	<!-- FOOTER -->
+	<footer style="background-color: #f5f0f0; color: #000; padding: 1.5rem; text-align: center; font-family: Arial, sans-serif; font-size: 0.9rem;">
+	  <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+		<strong>OURENSTICKS HOCKEY CLUB</strong>
+		<div style="display: flex; gap: 10px;">
+		  <a href="https://youtube.com" target="_blank"><img src="imagenes/youtube.svg" alt="Youtube" width="20" height="20"></a>
+		  <a href="https://www.instagram.com/" target="_blank"><img src="imagenes/Instagram_logo_2022.svg.png" alt="Instagram" width="20" height="20"></a>
+		</div>
+	  </div>
+	</footer>
+
+
+<script>
+  function toggleMenu() {
+    var nav = document.getElementById("mainNav");
+    nav.classList.toggle("show");
+  }
+
+  // Cierra el menú al hacer clic en un enlace
+  document.querySelectorAll('.main-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById("mainNav").classList.remove("show");
+    });
+  });
+</script>
+
+
 
 </body>
 </html>

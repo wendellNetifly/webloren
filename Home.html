@@ -62,13 +62,6 @@
       color: #555;
     }
 
-    .seccion-negra {
-      background-color: #000;
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
     .seccion-negra h1 {
       font-size: 2rem;
     }
@@ -80,7 +73,7 @@
     }
 
     .seccion-negra button,
-.content button	{
+	.content button	{
 	  background-color: red;
 	  color: white;
 	  border: none;
@@ -94,6 +87,23 @@
 	  min-width: 150px;
     }
 	
+.boton-contacto {
+  justify-content: center;
+  align-items: center;
+  margin: 3rem;
+  padding: 0.75rem 1.5rem;
+  background-color: red;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  width: 20%;
+  height: 40px;
+  min-width: 150px;
+  margin-top: 5px;
+}
+
+	
 
     .seccion-negra img {
       max-width: 90%;
@@ -101,6 +111,19 @@
       margin: 1.5rem 0;
       border-radius: 10px;
     }
+	
+	.seccion-negra {
+	  max-width: 87%;
+	  margin: 0 auto; /* Esto centra horizontalmente */
+	  background-color: #000;
+	  color: white;
+	  padding: 3rem 2rem;
+	  height: auto;
+	  text-align: center;
+	        border-radius: 10px;
+
+	}
+
 	
 	.formulario-suscripcion {
 	  display: flex;
@@ -132,10 +155,10 @@
 	  cursor: pointer;
 	}
 
-.menu-container {
-  position: relative;
-  z-index: 1001; /* Asegura que esté por encima del contenido */
-}
+	.menu-container {
+	  position: relative;
+	  z-index: 1001; /* Asegura que esté por encima del contenido */
+	}
 
 
 	.main-nav {
@@ -151,9 +174,9 @@
 	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	}
 
-.main-nav.show {
-  display: block;
-}
+	.main-nav.show {
+	  display: block;
+	}
 
 
 	.main-nav ul {
@@ -189,24 +212,57 @@
 	}
 
 
-li a {
-  display: block;
-  width: 60px;
-}
+	li a {
+	  display: block;
+	  width: 60px;
+	}
+		
+		.social-icons a {
+	  margin: 1rem;
+	  }
+	  
+	  .menu-container{
+	  margin: 1rem;
+	  }
+	  
+	  .content, .seccion-negra,footer {
+	  width: 100%;
+	  box-sizing: border-box;
+	  clear: both;
+	}
 	
-	.social-icons a {
-  margin: 1rem;
-  }
-  
-  .menu-container{
-  margin: 1rem;
-  }
-  
-  .content, .seccion-negra,footer {
-  width: 100%;
-  box-sizing: border-box;
-  clear: both;
+	.columna1 {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  margin-left: 7rem;
+  max-height: 100px;
+  min-height:20px;
 }
+
+
+.columna4 {
+  grid-column: 4;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 7rem;
+}
+
+.social-icons{
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  margin-left: 7rem;
+}
+
+.menu-container{
+  display: flex;
+  align-items: center;
+  margin-left: 7rem;
+}
+
+
   
   </style>
 </head>
@@ -215,7 +271,7 @@ li a {
   <!-- HEADER CON COLUMNAS -->
 	<div class="header">
 	  <!-- Columna 1: Logo -->
-	  <img src="imagenes/logo-ourensticks-1.png" alt="Logo Ourensticks" class="logo">
+	  <img class="columna1" src="imagenes/logo-ourensticks-1.png" alt="Logo Ourensticks" class="logo">
 
 	  <!-- Columna 2: Nombre del club -->
 	  <div class="club-name">
@@ -224,18 +280,18 @@ li a {
 
 	  <!-- Columna 3: Redes sociales -->
 	  <div class="social-icons">
-		<a href="https://www.instagram.com/" target="_blank">
+		<a href="https://www.instagram.com/ourensticks" target="_blank" aria-label="Instagram">
 		  <img src="imagenes/Instagram_logo_2022.svg.png" alt="Instagram">
 		</a>
-		<a href="https://www.youtube.com/" target="_blank">
+		<a href="https://www.youtube.com/@OurensticksHockeyClub" target="_blank">
 		  <img src="imagenes/youtube.svg" alt="YouTube">
 		</a>
 	  </div>
 
 	<!-- Columna 4: Menú -->
-	<div class="menu-container">
+	<div class="menu-container columna4">
 <button class="menu-toggle" aria-expanded="false" onclick="toggleMenu()">☰ Menú</button>
-	  <nav class="main-nav" id="mainNav">
+	<nav class="main-nav" id="mainNav" role="navigation">
 		<ul>
 		  <li><a href="#home">Home</a></li>
 		  <li><a href="#eventos">Eventos</a></li>
@@ -267,8 +323,11 @@ li a {
     <h3>COMUNIDAD OURENSTICKS</h3>
     <h1>CONSTRUYE UNA FAMILIA A TRAVES DEL HOCKEY</h1>
 	<p>Fundado hace más de una década, Ourensticks Hockey Club reúne a jugadores de todas las edades y niveles. Nuestro enfoque está en fomentar el trabajo en equipo, el espíritu deportivo y la diversión tanto en hockey hierba como en hockey sala.</p>
-    <button onclick="window.location.href='#'">CONTACTO</button>
-    <img src="imagenes/img_4615.jpg" alt="Foto del equipo">
+    <br>
+	<div>    <a href="mailto:lorenzo.amorin@ourensticks.es" class="boton-contacto">CONTACTO</a>
+</div>
+<br></br>
+	<img src="imagenes/img_4615.jpg" alt="Foto del equipo">
   </div>
   
   
@@ -301,7 +360,7 @@ li a {
 	<!-- SECCION SUBSCRIBETE -->
 	<div class="seccion-negra" id="contacto">
 	  <h3>PARA ACTUALIZACIONES DEL CLUB</h3>
-		<form class="formulario-suscripcion" action="URL_DEL_SERVICIO" method="post">
+		<form class="formulario-suscripcion" action="#" method="post">
 		  <input type="email" name="email" placeholder="Type your email..." required>
 		  <button type="submit">SUBSCRIBETE</button>
 		</form>
@@ -312,8 +371,8 @@ li a {
 	  <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
 		<strong>OURENSTICKS HOCKEY CLUB</strong>
 		<div style="display: flex; gap: 10px;">
-		  <a href="https://youtube.com" target="_blank"><img src="imagenes/youtube.svg" alt="Youtube" width="20" height="20"></a>
-		  <a href="https://www.instagram.com/" target="_blank"><img src="imagenes/Instagram_logo_2022.svg.png" alt="Instagram" width="20" height="20"></a>
+		  <a href="https://www.youtube.com/@OurensticksHockeyClub" target="_blank"><img src="imagenes/youtube.svg" alt="Youtube" width="20" height="20"></a>
+		  <a href="https://www.instagram.com/ourensticks" target="_blank"><img src="imagenes/Instagram_logo_2022.svg.png" alt="Instagram" width="20" height="20"></a>
 		</div>
 	  </div>
 	</footer>

@@ -79,7 +79,8 @@
       max-width: 600px;
     }
 
-    .seccion-negra button {
+    .seccion-negra button,
+.content button	{
 	  background-color: red;
 	  color: white;
 	  border: none;
@@ -90,21 +91,9 @@
 	  border-radius: 5px;
 	  width: 20%;
 	  height: 60px;
+	  min-width: 150px;
     }
 	
-    .content button{
-	  background-color: red;
-	  color: white;
-	  border: none;
-	  padding: 1rem 2rem;
-	  margin: 1rem 0;
-	  cursor: pointer;
-	  font-size: 1rem;
-	  border-radius: 5px;
-	  width: 20%;
-	  height: 60px;
-	  margin-bottom: 2rem;
-    }
 
     .seccion-negra img {
       max-width: 90%;
@@ -245,7 +234,7 @@ li a {
 
 	<!-- Columna 4: Menú -->
 	<div class="menu-container">
-	  <button class="menu-toggle" onclick="toggleMenu()">☰ Menú</button>
+<button class="menu-toggle" aria-expanded="false" onclick="toggleMenu()">☰ Menú</button>
 	  <nav class="main-nav" id="mainNav">
 		<ul>
 		  <li><a href="#home">Home</a></li>
@@ -312,10 +301,10 @@ li a {
 	<!-- SECCION SUBSCRIBETE -->
 	<div class="seccion-negra" id="contacto">
 	  <h3>PARA ACTUALIZACIONES DEL CLUB</h3>
-	  <div class="formulario-suscripcion">
-		<input type="email" placeholder="Type your email..." required>
-		<button>SUBSCRIBETE</button>
-	  </div>
+		<form class="formulario-suscripcion" action="URL_DEL_SERVICIO" method="post">
+		  <input type="email" name="email" placeholder="Type your email..." required>
+		  <button type="submit">SUBSCRIBETE</button>
+		</form>
 	</div>
 
 	<!-- FOOTER -->
@@ -331,10 +320,13 @@ li a {
 
 
 <script>
-  function toggleMenu() {
-    var nav = document.getElementById("mainNav");
-    nav.classList.toggle("show");
-  }
+function toggleMenu() {
+  var nav = document.getElementById("mainNav");
+  var toggleButton = document.querySelector(".menu-toggle");
+  var isVisible = nav.classList.toggle("show");
+  toggleButton.setAttribute("aria-expanded", isVisible);
+}
+
 
   // Cierra el menú al hacer clic en un enlace
   document.querySelectorAll('.main-nav a').forEach(link => {
@@ -342,6 +334,16 @@ li a {
       document.getElementById("mainNav").classList.remove("show");
     });
   });
+  
+  document.addEventListener('click', function(e) {
+  const menu = document.getElementById("mainNav");
+  const toggle = document.querySelector(".menu-toggle");
+  if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+    menu.classList.remove("show");
+    toggle.setAttribute("aria-expanded", false);
+  }
+});
+
 </script>
 
 
